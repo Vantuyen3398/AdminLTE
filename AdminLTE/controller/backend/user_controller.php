@@ -77,16 +77,16 @@
 								}
 						$user = new ModelUser();
 						$start_from = $user -> pagination($page);
+						if($start_from){
+							if(isset($_GET["username"])){
+								$username = $_GET["username"];
+								$delete = $user -> deleteUser($username);
+							}
+						}
 					}
 
 					$user = new ModelUser();
 					$list_all_user = $user -> getAllUser();
-
-					if(isset($GET_["username"])){
-						$username = $_GET['username'];
-						$user = ModelUser();
-						$delete = $user -> deleteUser($username);
-					}
 					include 'view/backend/list_user.php';
 					break;
 				case 'chagne':

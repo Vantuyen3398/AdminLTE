@@ -53,8 +53,8 @@
                         <a onclick="return confirm('Are you want to delete?')" href="admin.php?controller=user&action=list_user&username=<?php echo $item[2];?>">Delete</a>
                       </td>
                   </tr>
-                <?php  
-                  } 
+                <?php 
+                }
                 }
               }
               ?>
@@ -68,7 +68,6 @@
                   </li>
                     <?php 
                       if($list_all_user){
-                      
                         $i = 1;
                         $size = count($list_all_user);
                         $page = ceil($size / 3);

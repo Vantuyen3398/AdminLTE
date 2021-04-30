@@ -103,9 +103,10 @@
 			    {
 			        $buffer = fgets($r);
 			        if(strpos($buffer, $username) !== FALSE)
-			            $user[] = explode(",", $buffer);
+			            $user = explode(",", $buffer);
+			        	unset($user[$username]);
 			    }
-	    		unset($user[$username]);
+	    		
 			    $newFileContent = implode(",", $user);
 	    		$r = fopen("uploads/user.txt", 'w');
 	    		if($r){
@@ -114,5 +115,6 @@
 	    		}
 			}
 		}
+		
 	}
 ?>
