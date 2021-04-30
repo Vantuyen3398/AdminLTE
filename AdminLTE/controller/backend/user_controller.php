@@ -49,7 +49,7 @@
 								$login['username'] = $username;
 								$login['role'] = $checklogin;
 								$_SESSION['login'] = $login;
-								header("Location:admin.php?controller=user&action=list_user");
+								header("Location:admin.php");
 							}
 							else {
 								header("Location: login.php");
@@ -140,9 +140,18 @@
 					include 'view/backend/chagnepassword.php';
 					break;
 				default:
-					if(!isset($_SESSION['login'])){
-						header("Location: login.php");
-					}
+					// if(!isset($_SESSION['login'])){
+					// 	header("Location: login.php");
+					// }
+				if(isset($_SESSION['login'])){
+                    $admin = $_SESSION['login']['role'];
+                    if($admin == 1){
+                    	header("Location: admin.php?controller=user&action=list_user");
+                    }
+                    else{
+                    	header("Location: login.php");
+                    }
+                }
 					break;
 			}
 		}

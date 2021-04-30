@@ -36,8 +36,8 @@
                 </div>
                 <div class="form-group">
                   <select name="role">
-                        <option value="admin">Admin</option>
-                        <option value="customer">Customer</option>
+                        <option value="1">Admin</option>
+                        <option value="0">Customer</option>
                     </select>
                 </div>
               </div>
