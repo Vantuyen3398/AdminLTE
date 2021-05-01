@@ -10,3 +10,11 @@ function validateForm() {
     return false;
   }
 }
+
+function validateCate(){
+  var x = document.forms["category"]["name"].value;
+  if(x == ""){
+    alert("Field must not be empty");
+    return false;
+  }
+}

@@ -41,10 +41,19 @@
               </a>
             </li>
             <li class="active">
+              <?php  
+                if(isset($_SESSION['login'])){
+                  $admin = $_SESSION['login']['role'];
+                    if($admin == 1){
+              ?>
               <a href="admin.php?controller=user&action=list_user">
                 <i class="fa fa-circle-o"></i> 
                 List users
               </a>
+              <?php
+                  }
+                }
+              ?>
             </li>
             <li>
               <a href="admin.php?controller=user&action=chagne">
@@ -64,15 +73,41 @@
           </a>
           <ul class="treeview-menu">
             <li>
-              <a href="admin.php?controller=user&action=add_product">
+              <a href="admin.php?action=add_product">
                 <i class="fa fa-circle-o"></i> 
                 Add product
               </a>
             </li>
             <li>
-              <a href="admin.php?controller=user&action=list_product">
+              <?php  
+                if(isset($_SESSION['login'])){
+                  $admin = $_SESSION['login']['role'];
+                    if($admin == 1){
+              ?>
+              <a href="admin.php?action=list_product">
                 <i class="fa fa-circle-o"></i> 
                 List products
+              </a>
+              <?php
+                  }
+                }
+              ?>
+            </li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa  fa-cubes"></i>
+            <span>Category</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li>
+              <a href="admin.php?action=add_cate">
+                <i class="fa fa-circle-o"></i> 
+                Add category
               </a>
             </li>
           </ul>

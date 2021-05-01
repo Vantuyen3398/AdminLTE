@@ -2,7 +2,7 @@
 session_start();
 include 'common/header.php';
 include 'controller/backend/user_controller.php';
-include 'controller/backend/products.php';
+include 'controller/backend/product_controller.php';
 ?>
   <!-- Left side column. contains the logo and sidebar -->
  
@@ -26,9 +26,9 @@ include 'controller/backend/products.php';
       <!-- Info boxes -->
         <?php 
           $user = new UserController();
-          $product = new Products();
           $user->handleRequest();
-          // $product->handleRequest();
+          $pd = new ProductController();
+          $pd->handleRequest();
         ?>
       <!-- /.row -->
     </section>
