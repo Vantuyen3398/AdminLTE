@@ -93,6 +93,21 @@
                 }
               ?>
             </li>
+            <li>
+              <?php  
+                if(isset($_SESSION['login'])){
+                  $admin = $_SESSION['login']['role'];
+                    if($admin == 1){
+              ?>
+              <a href="admin.php?action=edit_product">
+                <i class="fa fa-circle-o"></i> 
+                Edit products
+              </a>
+              <?php
+                  }
+                }
+              ?>
+            </li>
           </ul>
         </li>
         <li class="treeview">

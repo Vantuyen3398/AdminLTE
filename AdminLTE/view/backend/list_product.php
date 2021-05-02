@@ -22,11 +22,11 @@
                 </tr>
                 <?php  
                   if($start_from){
-                    foreach ($start_from as $key => $value) {
+                    foreach ($start_from as $a => $value) {
                       $k = $value[1];
                 ?>
                   <tr>
-                    <th style="width: 10px;text-align: center; line-height: 70px"><?php echo $key + 1?></th>
+                    <th style="width: 10px;text-align: center; line-height: 70px"><?php echo $a + 1?></th>
 
                   <th style="text-align: center; line-height: 70px"><?php echo $value[0]?></th>
                   
@@ -48,7 +48,7 @@
                   <th><img src="uploads/product/<?php echo $value[3]?>" width = "100px" height = "80px" alt="" /></th>
 
                   <th style="width: 40px;text-align: center; line-height: 70px">
-                    <a href="admin.php?action=edit_product&id=<?php echo $id;?>">
+                    <a href="admin.php?action=edit_product&name=<?php echo $value[0];?>">
                       <button type="button" class="btn btn-block btn-info">EDIT</button>
                     </a> 
                     <a href="admin.php?action=delete_product&id=<?php echo $id;?>">

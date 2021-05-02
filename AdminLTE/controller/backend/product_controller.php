@@ -64,6 +64,16 @@
 						$start_from = $pd -> pagination($page);
 						include 'view/backend/list_product.php';
 						break;
+					case 'edit_product':
+						if(isset($_GET['name'])){
+							$name = $_GET['name'];
+							$pd = new ModelProduct();
+							$edit = $pd -> getName($name);
+							$cate = $pd -> getCate();
+						}
+						include 'view/backend/edit_product.php';
+
+						break;
 				default:
 					# code...
 					break;

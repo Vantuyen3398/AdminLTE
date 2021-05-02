@@ -67,5 +67,20 @@
 			$list_product = ModelProduct::showProduct();
 			return array_slice($list_product, $index, 3);
 		}
+
+		function getName($name){
+			$arr = array();
+			$file = "uploads/product.txt";
+			$r = fopen($file, "r");
+			if($r){
+				while(!feof($r)){
+					$row = fgets($r);
+						$arr = explode(",", $row);
+						if($arr[0] == $name){
+							return $arr;
+						}
+				}
+			}
+		}
 	}
 ?>
