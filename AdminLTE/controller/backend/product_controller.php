@@ -25,13 +25,18 @@
 				case 'add_product':
 					$pd = new ModelProduct();
 					$cate = $pd -> getCate();
+					//uploads files
+					$permited = array('jpg', 'jpeg', 'png', 'gif');
+					$file_name = $_FILES['image']['name'];
+					$file_size = $_FILES['image']['size'];
+					$file_temp = $_FILES['image']['tmp_name'];
 
-					// $image = 'default.png';
-					$pathUpload = 'uploads/product/';
-					if ($_FILES['image']['error'] == 0) 
-					{
-						move_uploaded_file($_FILES['image']['tmp_name'], $pathUpload.$_FILES['image']['name']);
-					}
+					$div = explode('.', $file_name);
+					$file_ext = strtolower(end($div));
+					$unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
+					$uploaded_image = "uploads/product/".$unique_image;
+					move_uploaded_file($file_temp, $uploaded_image);
+
 					if(isset($_POST['add_product'])){
 						$name = trim($_POST['name']);
 						$cate_name = $_POST['category_name'];
@@ -70,6 +75,37 @@
 							$pd = new ModelProduct();
 							$edit = $pd -> getName($name);
 							$cate = $pd -> getCate();
+						}
+
+						$pd = new ModelProduct();
+						//uploads files
+						$permited = array('jpg', 'jpeg', 'png', 'gif');
+						// $file_name = $_FILES['image']['name'];
+						// $file_size = $_FILES['image']['size'];
+						// $file_temp = $_FILES['image']['tmp_name'];
+
+						// $div = explode('.', $file_name);
+						// $file_ext = strtolower(end($div));
+						// $unique_image = substr(md5(time()), 0, 10).'.'.$file_ext;
+						// $uploaded_image = "uploads/product/".$unique_image;
+						// move_uploaded_file($file_temp, $uploaded_image);
+
+						if(isset($_POST['update_product'])){
+							$name = trim($_POST['name']);
+							$cate_name = $_POST['category_name'];
+							$price = trim($_POST['price']);
+							// $image = $_FILES['image']['name'];
+							if(!empty($name && $cate_name && $price && $image))
+							{
+								$update_product = $pd -> update_product($name, $cate_name, $price, $image,);
+								if($update_product == true){
+									$alert = "Update Product Success Fully!";
+								}
+							}
+							else
+							{	
+								$alert = "Update Product Not Success Fully!";
+							}
 						}
 						include 'view/backend/edit_product.php';
 

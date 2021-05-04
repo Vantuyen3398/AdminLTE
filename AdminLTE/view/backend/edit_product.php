@@ -27,7 +27,9 @@
                         if($cate_cate == $edit[1]){
                     ?>
                     <select class="form-control" name="category_name">
-                      <option value="<?php echo $key + 1?>"><?php echo $item[0]?></option>
+                      <option value="<?php echo $key + 1?>">
+                        <?php echo $item[0]?>
+                      </option>
                     </select>
                     <?php
                       }

@@ -108,7 +108,7 @@
 			    }
 	    		
 			    $newFileContent = implode(",", $user);
-	    		$r = fopen("uploads/user.txt", 'w');
+	    		$r = fopen("uploads/update.txt", 'w');
 	    		if($r){
 	    			fwrite($r, $newFileContent);
 	    			fclose($r);
