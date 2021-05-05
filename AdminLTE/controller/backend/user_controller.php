@@ -43,18 +43,17 @@
 						if (isset($_POST['login'])) {
 							$username = trim($_POST['username']);
 							$password = trim(md5($_POST['password']));
-							$user = new ModelUser();
-							$checklogin = $user->login($username, $password);
-							if ($checklogin) {
-								$login['username'] = $username;
-								$login['role'] = $checklogin;
-								$_SESSION['login'] = $login;
-								header("Location:admin.php");
-							}
-							else {
-								header("Location: login.php");
-							}
-							
+								$user = new ModelUser();
+								$checklogin = $user->login($username, $password);
+								if ($checklogin) {
+									$login['username'] = $username;
+									$login['role'] = $checklogin;
+									$_SESSION['login'] = $login;
+									header("Location:admin.php");
+								}
+								else {
+									header("Location: login.php");
+								}
 						}
 						break;
 				case 'logout':

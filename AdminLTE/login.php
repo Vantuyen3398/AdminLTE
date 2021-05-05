@@ -23,6 +23,7 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+  <script src="js/validate.js"></script>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -35,7 +36,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="admin.php?action=login" method="post">
+    <form action="admin.php?action=login" method="post" name="login" onsubmit="return validateForm()">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Username" name="username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -63,5 +64,16 @@
 <script src="js/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="js/bootstrap.min.js"></script>
+<script>
+  function validateForm() {
+  var a = document.forms["login"]["username"].value;
+  var b = document.forms["login"]["password"].value;
+  if (a == "" || b == "") {
+    alert("Field must not be empty");
+    return false;
+  }
+}
+</script>
+
 </body>
 </html>
